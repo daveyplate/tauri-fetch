@@ -1,7 +1,7 @@
 {
     "name": "@daveyplate/tauri-fetch",
     "homepage": "https://github.com/daveyplate/tauri-fetch",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Tauri Fetch",
     "scripts": {
         "build": "tsup --clean --dts",
@@ -33,8 +33,13 @@
             }
         }
     },
-    "files": ["src", "dist"],
-    "keywords": ["typescript"],
+    "files": [
+        "src",
+        "dist"
+    ],
+    "keywords": [
+        "typescript"
+    ],
     "author": "daveycodez",
     "license": "MIT",
     "devDependencies": {
