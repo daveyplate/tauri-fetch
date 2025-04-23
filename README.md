@@ -12,6 +12,9 @@ A lightweight utility that automatically uses Tauri's HTTP plugin for network re
 
 ## Installation
 
+First set up the Tauri HTTP Client plugin:
+https://v2.tauri.app/plugin/http-client/
+
 ```bash
 # pnpm
 pnpm add @daveyplate/tauri-fetch
