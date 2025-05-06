@@ -1,7 +1,7 @@
 {
     "name": "@daveyplate/tauri-fetch",
     "homepage": "https://github.com/daveyplate/tauri-fetch",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "Tauri Fetch",
     "scripts": {
         "build": "tsup --clean --dts",
