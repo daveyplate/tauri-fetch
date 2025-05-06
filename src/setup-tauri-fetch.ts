@@ -23,7 +23,7 @@ function matchesPattern(url: string, pattern: string): boolean {
 }
 
 export interface SetupTauriFetchParams {
-    matcher?: string
+    matcher?: string | null
 }
 
 export function setupTauriFetch(params?: SetupTauriFetchParams) {
