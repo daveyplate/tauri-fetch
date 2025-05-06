@@ -22,11 +22,11 @@ function matchesPattern(url: string, pattern: string): boolean {
     return regex.test(url)
 }
 
-export function setupTauriFetch({
-    matcher
-}: {
+export interface SetupTauriFetchParams {
     matcher?: string
-}) {
+}
+
+export function setupTauriFetch(params?: SetupTauriFetchParams) {
     if (!isTauri()) return
 
     if (!window.originalFetch) {
@@ -36,7 +36,7 @@ export function setupTauriFetch({
     window.fetch = (input, init) => {
         const url = input?.toString()
 
-        if (url?.startsWith("http") && (!matcher || matchesPattern(url, matcher))) {
+        if (url?.startsWith("http") && (!params?.matcher || matchesPattern(url, params.matcher))) {
             return tauriFetch(input, init)
         }
 

@@ -1,7 +1,7 @@
 import { useEffect } from "react"
-import { setupTauriFetch } from "./setup-tauri-fetch"
+import { type SetupTauriFetchParams, setupTauriFetch } from "./setup-tauri-fetch"
 
-type TauriFetchOptions = Parameters<typeof setupTauriFetch>[0]
+type TauriFetchOptions = SetupTauriFetchParams
 
 export function useTauriFetch(options?: TauriFetchOptions) {
     useEffect(() => {
