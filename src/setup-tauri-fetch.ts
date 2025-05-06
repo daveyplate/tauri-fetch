@@ -7,7 +7,26 @@ declare global {
     }
 }
 
-export function setupTauriFetch() {
+/**
+ * Checks if a url matches a wildcard pattern
+ * Pattern can include * wildcards that match any number of characters
+ */
+function matchesPattern(url: string, pattern: string): boolean {
+    // Convert wildcard pattern to regex
+    const regexPattern = pattern
+        .split("*")
+        .map((part) => part.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"))
+        .join(".*")
+
+    const regex = new RegExp(`^${regexPattern}$`)
+    return regex.test(url)
+}
+
+export function setupTauriFetch({
+    matcher
+}: {
+    matcher?: string
+}) {
     if (!isTauri()) return
 
     if (!window.originalFetch) {
@@ -15,7 +34,9 @@ export function setupTauriFetch() {
     }
 
     window.fetch = (input, init) => {
-        if (input?.toString().startsWith("http")) {
+        const url = input?.toString()
+
+        if (url?.startsWith("http") && (!matcher || matchesPattern(url, matcher))) {
             return tauriFetch(input, init)
         }
 
