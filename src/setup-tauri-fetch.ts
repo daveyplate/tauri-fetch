@@ -36,7 +36,10 @@ export function setupTauriFetch(params?: SetupTauriFetchParams) {
     window.fetch = (input, init) => {
         const url = input?.toString()
 
-        if (url?.startsWith("http") && (!params?.matcher || matchesPattern(url, params.matcher))) {
+        if (
+            url?.startsWith("http") &&
+            (!params?.matcher || matchesPattern(url, params.matcher))
+        ) {
             return tauriFetch(input, init)
         }
 

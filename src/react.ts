@@ -1,5 +1,8 @@
 import { useEffect } from "react"
-import { type SetupTauriFetchParams, setupTauriFetch } from "./setup-tauri-fetch"
+import {
+    type SetupTauriFetchParams,
+    setupTauriFetch
+} from "./setup-tauri-fetch"
 
 type TauriFetchOptions = SetupTauriFetchParams
 
